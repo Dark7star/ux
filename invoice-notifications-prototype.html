@@ -1,0 +1,2391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AgilLink | Vendors</title>
+    <style>
+      :root {
+        font-family: Roboto, "Segoe UI", Arial, sans-serif;
+        color: #344a61;
+        font-size: 14px;
+        --navy: #2d4967;
+        --navy-light: #405b78;
+        --blue: #0876dc;
+        --line: #d3dae3;
+        --muted: #64788e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 720px;
+        min-height: 100vh;
+        margin: 0;
+        background: #fff;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button {
+        color: inherit;
+      }
+
+      .sidebar {
+        position: fixed;
+        inset: 0 auto 0 0;
+        z-index: 5;
+        display: flex;
+        width: 197px;
+        flex-direction: column;
+        background: var(--navy);
+        color: #eef3f8;
+      }
+
+      .brand {
+        height: 46px;
+        padding: 14px 17px;
+        color: #f5f7fa;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      .nav {
+        display: grid;
+        gap: 2px;
+        padding: 0 7px;
+      }
+
+      .nav a {
+        display: flex;
+        height: 32px;
+        align-items: center;
+        gap: 12px;
+        padding: 0 8px;
+        border-radius: 4px;
+        color: #e6edf4;
+        text-decoration: none;
+        transition: background 120ms ease;
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        background: #3a5877;
+        color: #fff;
+      }
+
+      .nav-icon {
+        display: grid;
+        width: 16px;
+        flex: 0 0 16px;
+        place-items: center;
+        color: #e1eaf2;
+      }
+
+      .nav-icon svg {
+        width: 15px;
+        height: 15px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .sidebar-footer {
+        margin-top: auto;
+        padding: 18px 16px 21px;
+        color: #e0e9f2;
+        font-size: 14px;
+      }
+
+      .main-shell {
+        min-height: 100vh;
+        margin-left: 197px;
+      }
+
+      .topbar {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        height: 46px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px 0 0;
+        background: var(--navy);
+      }
+
+      .client-picker {
+        display: flex;
+        width: min(384px, 45vw);
+        height: 28px;
+        align-items: center;
+        gap: 10px;
+        margin-left: 0;
+        padding: 0 12px;
+        border: 0;
+        border-radius: 4px;
+        background: var(--navy-light);
+        color: #eef3f8;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .client-picker svg {
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+
+      .icon-button {
+        position: relative;
+        display: grid;
+        width: 26px;
+        height: 30px;
+        place-items: center;
+        border: 0;
+        border-radius: 4px;
+        background: transparent;
+        color: #edf3fa;
+        cursor: pointer;
+      }
+
+      .icon-button:hover,
+      .icon-button[aria-expanded="true"] {
+        background: #405b78;
+      }
+
+      .icon-button svg {
+        width: 17px;
+        height: 17px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+      }
+
+      .notification-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: grid;
+        min-width: 15px;
+        height: 15px;
+        place-items: center;
+        padding: 0 3px;
+        border: 1px solid var(--navy);
+        border-radius: 9px;
+        background: #d72e2e;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      main {
+        min-height: calc(100vh - 46px);
+        padding: 8px 24px 30px;
+        background: #fff;
+      }
+
+      .page-heading {
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      h1 {
+        margin: 0;
+        color: #344b63;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .heading-actions {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 32px;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 0 11px;
+        border: 1px solid #cbd4df;
+        border-radius: 4px;
+        background: #fff;
+        color: #096ab9;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 550;
+        white-space: nowrap;
+      }
+
+      .button:hover {
+        background: #f6f9fc;
+      }
+
+      .button.primary {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .button.primary:hover {
+        background: #0668c2;
+      }
+
+      .button svg {
+        width: 14px;
+        height: 14px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.6;
+      }
+
+      .toolbar {
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        gap: 17px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .search-wrap {
+        position: relative;
+        display: flex;
+        width: 145px;
+        height: 28px;
+        align-items: center;
+      }
+
+      .search-wrap svg {
+        position: absolute;
+        left: 10px;
+        width: 14px;
+        height: 14px;
+        fill: none;
+        pointer-events: none;
+        stroke: #546b82;
+        stroke-width: 1.7;
+      }
+
+      .search {
+        width: 100%;
+        height: 28px;
+        padding: 0 8px 0 31px;
+        border: 1px solid #cbd4df;
+        border-radius: 4px;
+        outline: none;
+        color: #344a61;
+        font-size: 14px;
+      }
+
+      .search:focus {
+        border-color: #75a9d8;
+        box-shadow: 0 0 0 2px #0876dc1c;
+      }
+
+      .tool-link {
+        display: inline-flex;
+        min-height: 30px;
+        align-items: center;
+        gap: 7px;
+        padding: 0 3px;
+        border: 0;
+        background: transparent;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 550;
+        white-space: nowrap;
+      }
+
+      #allFiltersButton,
+      #groupByButton,
+      #editColumnsButton {
+        display: none;
+      }
+
+      .tool-link:hover {
+        color: #064e8c;
+      }
+
+      .tool-link svg {
+        width: 15px;
+        height: 15px;
+        fill: none;
+        stroke: #50677d;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.65;
+      }
+
+      .tool-link .plus {
+        color: #354c64;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      .table-wrap {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        min-width: 870px;
+        border-collapse: collapse;
+        table-layout: fixed;
+        color: #42586f;
+      }
+
+      thead {
+        background: #fcfdfe;
+      }
+
+      th {
+        height: 36px;
+        border-bottom: 1px solid #cfd7e1;
+        color: #465c73;
+        font-size: 14px;
+        font-weight: 550;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      td {
+        height: 36px;
+        border-bottom: 0;
+        color: #50647a;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      th:first-child,
+      td:first-child {
+        width: 36px;
+        padding-left: 0;
+      }
+
+      th:nth-child(2) {
+        width: 170px;
+      }
+
+      th:nth-child(3) {
+        width: 170px;
+      }
+
+      th:nth-child(4) {
+        width: 170px;
+      }
+
+      th:nth-child(5) {
+        width: auto;
+      }
+
+      th:nth-child(6) {
+        width: 170px;
+      }
+
+      th:nth-child(7) {
+        width: 90px;
+      }
+
+      th:not(:first-child),
+      td:not(:first-child) {
+        padding-right: 10px;
+      }
+
+      .check {
+        width: 15px;
+        height: 15px;
+        margin: 0 0 0 0;
+        vertical-align: middle;
+        accent-color: #0876dc;
+        cursor: pointer;
+      }
+
+      .sortable {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: inherit;
+      }
+
+      .sort-mark {
+        color: #52677e;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .vendor-link {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #086cbd;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .vendor-link:hover {
+        text-decoration: underline;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 2px 8px 3px;
+        border: 1px solid #ccd5e0;
+        border-radius: 4px;
+        background: #fff;
+        color: #51677e;
+        font-size: 14px;
+        line-height: 1.2;
+      }
+
+      .popover {
+        position: absolute;
+        z-index: 7;
+        display: none;
+        min-width: 190px;
+        padding: 8px;
+        border: 1px solid #d5dce5;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 6px 20px #1e35451f;
+      }
+
+      .popover.open {
+        display: block;
+      }
+
+      .popover-title {
+        padding: 7px 8px 9px;
+        color: #3e536a;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .popover-option {
+        display: flex;
+        width: 100%;
+        min-height: 31px;
+        align-items: center;
+        gap: 9px;
+        padding: 5px 8px;
+        border: 0;
+        border-radius: 3px;
+        background: #fff;
+        color: #50657a;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .popover-option:hover {
+        background: #f2f6fa;
+      }
+
+      #filterPopover {
+        top: 174px;
+        left: 205px;
+        width: 250px;
+      }
+
+      #groupPopover {
+        top: 174px;
+        left: 465px;
+      }
+
+      #columnsPopover {
+        top: 174px;
+        left: 585px;
+      }
+
+      #clientPopover {
+        top: 39px;
+        left: 0;
+        width: 384px;
+      }
+
+      #notificationPopover {
+        top: 46px;
+        right: 165px;
+        width: min(540px, calc(100vw - 32px));
+        height: calc(100vh - 52px);
+        padding: 0;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        border-color: #d7dce4;
+        border-radius: 7px;
+        box-shadow: 0 5px 16px #172a3d2b;
+      }
+
+      #notificationPopover.open {
+        display: flex;
+      }
+
+      .notification-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 0 0 auto;
+        padding: 18px 18px;
+        border-bottom: 1px solid #d5dce5;
+      }
+
+      .notification-header .popover-title {
+        padding: 0;
+        color: #33475b;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: 0;
+      }
+
+      .mark-read-button {
+        padding: 5px 0 5px 8px;
+        border: 0;
+        background: transparent;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .mark-read-button:hover,
+      .notification-footer-link:hover {
+        color: #064e8c;
+        text-decoration: underline;
+      }
+
+      .notification-feed {
+        min-height: 0;
+        flex: 1 1 auto;
+        overflow-y: auto;
+        padding: 0;
+      }
+
+      .notification-feed.is-empty {
+        min-height: 270px;
+        overflow: hidden;
+      }
+
+      .notification-empty {
+        display: grid;
+        min-height: 270px;
+        align-content: center;
+        justify-items: center;
+        gap: 4px;
+        padding: 28px 16px;
+        color: #40566d;
+        text-align: center;
+      }
+
+      .notification-empty[hidden] {
+        display: none;
+      }
+
+      .notification-empty svg {
+        width: auto;
+        height: 18px;
+        margin-bottom: 5px;
+        fill: #2d4967;
+        stroke: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2.4;
+      }
+
+      .notification-empty strong {
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .notification-empty span {
+        font-size: 14px;
+      }
+
+      .notification-item {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) 24px 24px 9px;
+        gap: 8px;
+        align-items: start;
+        min-height: 96px;
+        padding: 16px 18px;
+        border: 0;
+        color: #5b5f62;
+        cursor: pointer;
+        line-height: 16px;
+      }
+
+      .notification-item:hover {
+        background: #f1f1f1;
+      }
+
+      .notification-item[data-notification="report-started"],
+      .notification-item[data-notification="report-failed"] {
+        color: #33475b;
+      }
+
+      .notification-item[data-notification="vendor"] {
+        min-height: 96px;
+      }
+
+      .notification-item[data-notification="vendor"].expanded {
+        min-height: 0;
+        padding-bottom: 12px;
+      }
+
+      .notification-status-icon {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 50%;
+        background: #0875bd;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .notification-status-icon.success {
+        background: #35a75a;
+        font-size: 14px;
+      }
+
+      .notification-status-icon.report-started {
+        background: #1976d2;
+        font-size: 26px;
+        font-weight: 400;
+      }
+
+      .notification-status-icon.failure {
+        background: #d51f25;
+        font-size: 14px;
+      }
+
+      .notification-status-icon.person {
+        font-size: 14px;
+      }
+
+      .notification-copy {
+        min-width: 0;
+      }
+
+      .notification-copy strong {
+        display: block;
+        margin: 0 0 2px;
+        color: #5b5f62;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0.1px;
+      }
+
+      .notification-item.unread .notification-copy strong {
+        color: #33475b;
+        font-weight: 800;
+      }
+
+      .notification-item.unread .notification-copy,
+      .notification-item.unread .notification-events {
+        font-weight: 600;
+      }
+
+      .notification-item.unread .notification-detail,
+      .notification-item.unread .notification-time {
+        color: #33475b;
+        font-weight: 600;
+      }
+
+      .notification-item.unread .notification-detail {
+        letter-spacing: 0.25px;
+      }
+
+      .notification-item.unread .notification-time {
+        letter-spacing: 0.1px;
+      }
+
+      .notification-item:not(.unread) .notification-copy,
+      .notification-item:not(.unread) .notification-detail,
+      .notification-item:not(.unread) .notification-time {
+        color: #5b5f62;
+        font-weight: 400;
+        letter-spacing: 0.1px;
+      }
+
+      .notification-detail,
+      .notification-time {
+        display: block;
+        color: #5b5f62;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1px;
+      }
+
+      .notification-time {
+        margin-top: 3px;
+        color: #62758a;
+      }
+
+      .notification-events {
+        display: grid;
+        gap: 7px;
+        margin-top: 8px;
+        padding-left: 9px;
+        border-left: 2px solid #c5ced8;
+        color: #4a6076;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .notification-events[hidden] {
+        display: none;
+      }
+
+      .expand-updates {
+        padding: 0 2px;
+        border: 0;
+        background: transparent;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .expand-updates:hover {
+        text-decoration: underline;
+      }
+
+      .notification-unread-dot {
+        width: 7px;
+        height: 7px;
+        margin-top: 6px;
+        border-radius: 50%;
+        background: #0764bd;
+      }
+
+      .notification-more,
+      .dismiss-notification {
+        display: grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        margin-top: -3px;
+        border: 0;
+        border-radius: 4px;
+        background: transparent;
+        color: #858b92;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1;
+        opacity: 0;
+        pointer-events: none;
+        transition: background 120ms ease, color 120ms ease, opacity 120ms ease;
+      }
+
+      .notification-more {
+        color: #858b92;
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+
+      .notification-item:hover .dismiss-notification,
+      .notification-item:focus-within .dismiss-notification,
+      .notification-item:focus-within .notification-more {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .dismiss-notification:hover,
+      .notification-more:hover {
+        background: #e2e4e6;
+        color: #3c4650;
+      }
+
+      .dismiss-notification:focus-visible,
+      .notification-more:focus-visible {
+        outline: 2px solid #0876dc;
+        outline-offset: 1px;
+      }
+
+      .notification-item:not(.unread) .notification-unread-dot {
+        visibility: hidden;
+      }
+
+      .download-report {
+        min-height: 26px;
+        margin-top: 5px;
+        padding: 2px 7px;
+        border: 1px solid #cbd4df;
+        border-radius: 4px;
+        background: white;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .download-report:hover {
+        background: #f3f7fb;
+      }
+
+      .notification-footer {
+        display: flex;
+        min-height: 50px;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 0 14px;
+        border-top: 1px solid #d5dce5;
+      }
+
+      .notification-footer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 4px;
+        border: 0;
+        background: transparent;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .pro-tip-button {
+        display: inline-flex;
+        min-height: 27px;
+        align-items: center;
+        gap: 5px;
+        padding: 0 8px;
+        border: 1px solid #d2dae4;
+        border-radius: 4px;
+        background: white;
+        color: #176fbb;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .pro-tip-button:hover {
+        background: #f4f8fc;
+      }
+
+      .popover input[type="checkbox"] {
+        accent-color: #0876dc;
+      }
+
+      .filter-fields {
+        display: grid;
+        gap: 9px;
+        padding: 4px 8px 8px;
+      }
+
+      .filter-fields label {
+        display: grid;
+        gap: 4px;
+        color: #596e84;
+        font-size: 14px;
+      }
+
+      .filter-fields select,
+      .filter-fields input {
+        height: 29px;
+        padding: 0 7px;
+        border: 1px solid #cbd4df;
+        border-radius: 4px;
+        background: #fff;
+        color: #344a61;
+        font-size: 14px;
+      }
+
+      .popover-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 7px;
+        padding: 8px;
+        border-top: 1px solid #edf0f4;
+      }
+
+      .small-button {
+        min-height: 27px;
+        padding: 0 9px;
+        border: 1px solid #cbd4df;
+        border-radius: 4px;
+        background: white;
+        color: #315474;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .small-button.primary {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: white;
+      }
+
+      .import-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 15;
+        visibility: hidden;
+        background: rgb(16 28 41 / 52%);
+        opacity: 0;
+        transition: opacity 200ms ease, visibility 200ms ease;
+      }
+
+      .import-overlay.open {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .import-panel {
+        position: absolute;
+        inset: 0 0 0 auto;
+        display: flex;
+        width: min(460px, 100%);
+        flex-direction: column;
+        background: #fff;
+        box-shadow: -4px 0 18px #172a3d24;
+        transform: translateX(100%);
+        transition: transform 240ms ease;
+      }
+
+      .import-overlay.open .import-panel {
+        transform: translateX(0);
+      }
+
+      .import-panel-header {
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px 0 20px;
+      }
+
+      .import-panel-header h2 {
+        margin: 0;
+        color: #3a5067;
+        font-size: 20px;
+        font-weight: 650;
+      }
+
+      .import-close {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border: 0;
+        border-radius: 4px;
+        background: transparent;
+        color: #53677d;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .import-close:hover {
+        background: #f0f3f6;
+      }
+
+      .import-tabs {
+        display: flex;
+        min-height: 42px;
+        gap: 16px;
+        padding: 0 20px;
+        border-bottom: 1px solid #d5dce5;
+      }
+
+      .import-tab {
+        position: relative;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #53677d;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .import-tab.active {
+        color: #0870c5;
+      }
+
+      .import-tab.active::after {
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        height: 2px;
+        background: #0876dc;
+        content: "";
+      }
+
+      .import-panel-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 19px 20px 24px;
+      }
+
+      .import-panel-content[hidden] {
+        display: none;
+      }
+
+      .upload-dropzone {
+        display: flex;
+        min-height: 114px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border: 1px dashed #7b828a;
+        border-radius: 4px;
+        color: #3e5268;
+        cursor: pointer;
+        text-align: center;
+        transition: background 120ms ease, border-color 120ms ease;
+      }
+
+      .upload-dropzone:hover,
+      .upload-dropzone.dragover {
+        border-color: #0876dc;
+        background: #f4f9fe;
+      }
+
+      .upload-cloud {
+        width: 29px;
+        height: 29px;
+        fill: none;
+        stroke: #0876dc;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      .upload-dropzone strong {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .upload-dropzone strong span {
+        color: #0870c5;
+      }
+
+      .upload-limit {
+        color: #53677d;
+        font-size: 14px;
+      }
+
+      .selected-file {
+        display: none;
+        margin-top: 10px;
+        color: #435970;
+        font-size: 14px;
+      }
+
+      .selected-file.visible {
+        display: block;
+      }
+
+      .selected-file-heading {
+        display: flex;
+        min-height: 23px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-weight: 600;
+      }
+
+      .selected-file-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .upload-progress-track {
+        height: 3px;
+        margin-top: 3px;
+        background: #d3dae3;
+      }
+
+      .upload-progress-fill {
+        width: 0;
+        height: 100%;
+        background: #2da75a;
+        transition: width 900ms ease;
+      }
+
+      .upload-progress-fill.uploading {
+        width: 82%;
+      }
+
+      .upload-progress-fill.complete {
+        width: 100%;
+      }
+
+      .upload-status {
+        min-height: 19px;
+        padding-top: 4px;
+        color: #65798e;
+        font-size: 14px;
+      }
+
+      .upload-status.complete {
+        color: #188d43;
+      }
+
+      .import-note {
+        width: 100%;
+        min-height: 30px;
+        margin-top: 2px;
+        padding: 4px 0;
+        border: 0;
+        border-bottom: 1px solid #d3dae3;
+        border-radius: 0;
+        outline-color: #0876dc;
+        color: #455b72;
+        font-size: 14px;
+      }
+
+      .import-note::placeholder {
+        color: #53677d;
+        opacity: 1;
+      }
+
+      .remove-selected-file {
+        border: 0;
+        background: transparent;
+        color: #687b8f;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .upload-instructions {
+        margin-top: 19px;
+        color: #455b72;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .upload-instructions strong {
+        display: block;
+        margin-bottom: 1px;
+        color: #3c5269;
+        font-size: 14px;
+      }
+
+      .upload-instructions ol {
+        margin: 0;
+        padding-left: 19px;
+      }
+
+      .template-download {
+        display: flex;
+        min-height: 49px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 0 11px;
+        border: 1px solid #d0d8e2;
+        border-radius: 4px;
+        color: #4a6076;
+        font-size: 14px;
+      }
+
+      .template-name {
+        display: inline-flex;
+        min-width: 0;
+        align-items: center;
+        gap: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .template-name svg {
+        width: 17px;
+        height: 17px;
+        flex: 0 0 auto;
+        fill: none;
+        stroke: #3d566f;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.6;
+      }
+
+      .template-download button {
+        border: 0;
+        background: transparent;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .history-list {
+        display: none;
+      }
+
+      .history-list.active {
+        display: block;
+      }
+
+      .history-empty {
+        padding: 55px 14px;
+        color: #65798e;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .history-entry {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 13px 0;
+        border-bottom: 1px solid #e6ebf0;
+        color: #53687e;
+        font-size: 14px;
+      }
+
+      .history-entry strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #3c5269;
+        font-size: 14px;
+      }
+
+      .history-status {
+        color: #2d805f;
+        white-space: nowrap;
+      }
+
+      .import-panel-footer {
+        display: flex;
+        min-height: 58px;
+        align-items: center;
+        gap: 8px;
+        padding: 0 20px;
+        border-top: 1px solid #d5dce5;
+      }
+
+      .import-panel-footer .button {
+        min-height: 31px;
+        font-size: 14px;
+      }
+
+      .import-panel-footer .button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+
+      body.import-open {
+        overflow: hidden;
+      }
+
+      .toast {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 18;
+        padding: 10px 14px;
+        border-radius: 4px;
+        background: #263f58;
+        box-shadow: 0 4px 14px #192c3d30;
+        color: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(8px);
+        transition: opacity 150ms ease, transform 150ms ease;
+      }
+
+      .toast:not(.import-toast) {
+        display: none;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .toast.import-toast {
+        right: auto;
+        left: 215px;
+        display: flex;
+        width: min(345px, calc(100vw - 235px));
+        align-items: flex-start;
+        gap: 11px;
+        padding: 12px 13px;
+        background: #fff;
+        color: #40566d;
+        pointer-events: auto;
+      }
+
+      .import-toast-icon {
+        display: grid;
+        width: 19px;
+        height: 19px;
+        flex: 0 0 19px;
+        place-items: center;
+        color: #1473bd;
+      }
+
+      .import-toast-icon svg {
+        width: 19px;
+        height: 19px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .import-toast.import-complete .import-toast-icon {
+        color: #219e52;
+      }
+
+      .import-toast-content {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .import-toast-title {
+        display: block;
+        margin-bottom: 3px;
+        color: #3c5269;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .import-toast-message,
+      .import-toast-meta {
+        display: block;
+        color: #53677d;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .import-toast-message {
+        overflow-wrap: anywhere;
+      }
+
+      .import-toast-action {
+        margin-top: 7px;
+        padding: 4px 7px;
+        border: 1px solid #cbd4df;
+        border-radius: 3px;
+        background: #fff;
+        color: #0870c5;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .import-toast-dismiss {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #53677d;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .import-toast-spinner {
+        width: 17px;
+        height: 17px;
+        border: 2px solid #d9e3ed;
+        border-top-color: #0876dc;
+        border-radius: 50%;
+        animation: import-spin 750ms linear infinite;
+      }
+
+      @keyframes import-spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @media (max-width: 980px) {
+        .sidebar {
+          width: 58px;
+        }
+
+        .brand {
+          overflow: hidden;
+          padding-left: 11px;
+          font-size: 0;
+        }
+
+        .brand::first-letter {
+          font-size: 14px;
+        }
+
+        .nav {
+          padding: 0 6px;
+        }
+
+        .nav a {
+          justify-content: center;
+          padding: 0;
+          font-size: 0;
+        }
+
+        .sidebar-footer {
+          overflow: hidden;
+          padding-right: 0;
+          padding-left: 0;
+          font-size: 0;
+          text-align: center;
+        }
+
+        .main-shell {
+          margin-left: 58px;
+        }
+
+        .toast.import-toast {
+          left: 76px;
+          width: min(345px, calc(100vw - 96px));
+        }
+
+        .toolbar {
+          gap: 12px;
+        }
+
+        #filterPopover,
+        #groupPopover,
+        #columnsPopover {
+          top: 174px;
+        }
+      }
+
+      @media (max-width: 740px) {
+        .topbar {
+          padding-right: 8px;
+        }
+
+        .client-picker {
+          width: min(300px, 48vw);
+        }
+
+        .top-actions {
+          gap: 5px;
+        }
+
+        main {
+          padding-right: 12px;
+          padding-left: 12px;
+        }
+
+        .toolbar {
+          flex-wrap: wrap;
+          gap: 4px 13px;
+          padding: 7px 0;
+        }
+
+        .search-wrap {
+          width: min(210px, 100%);
+        }
+
+        .heading-actions {
+          gap: 5px;
+        }
+
+        .button {
+          padding: 0 8px;
+        }
+
+        #notificationPopover {
+          right: 165px;
+          width: min(540px, calc(100vw - 74px));
+        }
+
+        .import-panel {
+          width: min(460px, 100vw);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">AGILLINK</div>
+      <nav class="nav">
+        <a href="#tasks" data-section="Tasks">
+          <span class="nav-icon"><svg viewBox="0 0 20 20"><path d="M3 8.5 5 5h10l2 3.5v6.2a1.3 1.3 0 0 1-1.3 1.3H4.3A1.3 1.3 0 0 1 3 14.7z"/><path d="M3 9h4l1.2 2h3.6L13 9h4"/></svg></span>Tasks
+        </a>
+        <a href="#transactions" data-section="Transactions">
+          <span class="nav-icon"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.4"/><path d="m8 6.5 5 3.5-5 3.5z"/></svg></span>Transactions
+        </a>
+        <a href="#reporting" data-section="Reporting">
+          <span class="nav-icon"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="3.3" height="14" rx=".7"/><rect x="8.3" y="6" width="3.3" height="11" rx=".7"/><rect x="13.6" y="2.5" width="3.3" height="14.5" rx=".7"/></svg></span>Reporting
+        </a>
+        <a href="#banking" data-section="Banking">
+          <span class="nav-icon"><svg viewBox="0 0 20 20"><path d="m2.5 7 7.5-4 7.5 4zM4 8.5h12M5 8.5v6m3.3-6v6m3.4-6v6m3.3-6v6M3 15.5h14M2.5 17h15"/></svg></span>Banking
+        </a>
+        <a href="#1099" data-section="1099">
+          <span class="nav-icon"><svg viewBox="0 0 20 20"><path d="M5 3h10v13l-5-3-5 3z"/><path d="M7.5 6.5h5m-5 3h5"/></svg></span>1099
+        </a>
+        <a href="#bookmarks" data-section="Bookmarks">
+          <span class="nav-icon"><svg viewBox="0 0 20 20"><path d="M5 3h10v14l-5-3.1L5 17z"/></svg></span>Bookmarks
+        </a>
+      </nav>
+      <div class="sidebar-footer">✣ &nbsp; Leave new vendors</div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="client-picker" id="clientButton" type="button" aria-expanded="false">
+          <svg viewBox="0 0 20 20"><circle cx="7" cy="6" r="2.2"/><path d="M2.5 14.5v-1.2A3.3 3.3 0 0 1 5.8 10h2.4a3.3 3.3 0 0 1 3.3 3.3v1.2M12.5 4.2a2.1 2.1 0 0 1 0 4.1m2 2a3.2 3.2 0 0 1 3 3.2v1"/></svg>
+          <span>Select client</span>
+        </button>
+        <div class="top-actions">
+          <button class="icon-button" id="bellButton" type="button" aria-label="Notifications" aria-expanded="false">
+            <svg viewBox="0 0 20 20"><path d="M15.3 7.8a5.3 5.3 0 0 0-10.6 0c0 6-2 6.3-2 7.3h14.6c0-1-2-1.3-2-7.3ZM8 17h4"/></svg>
+            <span class="notification-count">2</span>
+          </button>
+          <button class="icon-button" id="uploadButton" type="button" aria-label="Upload">
+            <svg viewBox="0 0 20 20"><path d="M10 12V3m-3 3 3-3 3 3M4 11v5h12v-5"/></svg>
+          </button>
+          <button class="icon-button" id="topSearchButton" type="button" aria-label="Search">
+            <svg viewBox="0 0 20 20"><circle cx="8.7" cy="8.7" r="5.6"/><path d="m13 13 4 4"/></svg>
+          </button>
+          <button class="icon-button" id="helpButton" type="button" aria-label="Help">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.2"/><path d="M8 7.4a2.1 2.1 0 1 1 3.5 1.6c-.9.8-1.5 1.1-1.5 2.3m0 2.3h.01"/></svg>
+          </button>
+          <button class="icon-button" id="profileButton" type="button" aria-label="Profile">
+            <svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.2"/><circle cx="10" cy="7.5" r="2.1"/><path d="M5.7 15.3a4.7 4.7 0 0 1 8.6 0"/></svg>
+          </button>
+        </div>
+        <div class="popover" id="clientPopover">
+          <div class="popover-title">Select a client</div>
+          <button class="popover-option" data-client="The Sterling Family" type="button">The Sterling Family</button>
+          <button class="popover-option" data-client="Canyon Ridge Holdings" type="button">Canyon Ridge Holdings</button>
+          <button class="popover-option" data-client="Orchard Property Management" type="button">Orchard Property Management</button>
+        </div>
+        <div class="popover" id="notificationPopover">
+          <div class="notification-header">
+            <div class="popover-title">Notifications</div>
+            <button class="mark-read-button" id="markNotificationsRead" type="button">Mark all read</button>
+          </div>
+          <div class="notification-feed" id="notificationFeed">
+            <article class="notification-item unread" tabindex="0" data-notification="report-started">
+              <span class="notification-status-icon report-started" aria-hidden="true">⟳</span>
+              <span class="notification-copy">
+                <strong>Report batch has started</strong>
+                <span class="notification-detail">Cyberpunk Reporting [Global] — 1% Completed</span>
+                <span class="notification-time">Just now -- Report automation</span>
+              </span>
+              <button class="notification-more" type="button" aria-label="More report notification options">•••</button>
+              <button class="dismiss-notification" type="button" aria-label="Dismiss report batch started notification">×</button>
+              <span class="notification-unread-dot" aria-label="Unread"></span>
+            </article>
+            <article class="notification-item" tabindex="0" data-notification="report-completed">
+              <span class="notification-status-icon success" aria-hidden="true">✓</span>
+              <span class="notification-copy">
+                <strong>Report batch completed</strong>
+                <span class="notification-detail">Cyberpunk Reporting [Global] — 100% Completed</span>
+                <span class="notification-time">12 mins ago — Report automation</span>
+                <button class="download-report" type="button" data-notification-action="report">Download report</button>
+              </span>
+              <button class="notification-more" type="button" aria-label="More report notification options">•••</button>
+              <button class="dismiss-notification" type="button" aria-label="Dismiss report batch completed notification">×</button>
+              <span class="notification-unread-dot" aria-label="Unread"></span>
+            </article>
+            <article class="notification-item unread" tabindex="0" data-notification="report-failed">
+              <span class="notification-status-icon failure" aria-hidden="true">!</span>
+              <span class="notification-copy">
+                <strong>Failed report generation</strong>
+                <span class="notification-detail">Cyberpunk Reporting [Global] — 0% Completed</span>
+                <span class="notification-time">30 mins ago — Report automation</span>
+              </span>
+              <button class="notification-more" type="button" aria-label="More report notification options">•••</button>
+              <button class="dismiss-notification" type="button" aria-label="Dismiss failed report generation notification">×</button>
+              <span class="notification-unread-dot" aria-label="Unread"></span>
+            </article>
+            <article class="notification-item" tabindex="0" data-notification="vendor" aria-expanded="false">
+              <span class="notification-status-icon person" aria-hidden="true">BR</span>
+              <span class="notification-copy">
+                <strong>Betty Raman updated Mow My Lawn LLC</strong>
+                <span class="notification-detail">3 events in the last day — Batched</span>
+                <span class="notification-time">4 hrs ago · <button class="expand-updates" type="button" aria-expanded="false" aria-controls="vendorUpdateEvents">Expand</button></span>
+                <span class="notification-events" id="vendorUpdateEvents" hidden>
+                  <span>Updated vendor address - Mow My Lawn LLC (4 hrs ago)</span>
+                  <span>Updated vendor 1099 - Mow My Lawn LLC (4 hrs ago)</span>
+                  <span>Updated vendor payments - Mow My Lawn LLC (4 hrs ago)</span>
+                </span>
+              </span>
+              <button class="notification-more" type="button" aria-label="More vendor notification options">•••</button>
+              <button class="dismiss-notification" type="button" aria-label="Dismiss vendor update notification">×</button>
+              <span class="notification-unread-dot" aria-label="Unread"></span>
+            </article>
+            <article class="notification-item" tabindex="0" data-notification="tax">
+              <span class="notification-status-icon person" aria-hidden="true">BR</span>
+              <span class="notification-copy">
+                <strong>Betty Raman filed Form 1099</strong>
+                <span class="notification-detail">Sunny Pictures Digital Productions Inc. — Correction IRS FIRE</span>
+                <span class="notification-time">2 days ago — 1099 Filing Tracker</span>
+              </span>
+              <button class="notification-more" type="button" aria-label="More Form 1099 notification options">•••</button>
+              <button class="dismiss-notification" type="button" aria-label="Dismiss Form 1099 notification">×</button>
+              <span class="notification-unread-dot" aria-label="Unread"></span>
+            </article>
+            <div class="notification-empty" id="notificationEmptyState" hidden>
+              <svg viewBox="0 0 88 96" aria-hidden="true">
+                <path d="M44 2c3.5 0 6.3 2.8 6.3 6.3v4.8c15.9 3 27.5 17 27.5 33.9v12.2c0 6 2.6 10.3 7.6 15.2 1.9 1.9.6 5.2-2.1 5.2H4.7c-2.7 0-4-3.3-2.1-5.2 5-4.9 7.6-9.2 7.6-15.2V47c0-16.9 11.6-30.9 27.5-33.9V8.3C37.7 4.8 40.5 2 44 2Z" />
+                <path d="M31 86h26c-1.5 6.5-6.2 10-13 10s-11.5-3.5-13-10Z" />
+              </svg>
+              <strong>You’re all caught up!</strong>
+              <span>You don't have any new notifications</span>
+            </div>
+          </div>
+          <div class="notification-footer">
+            <button class="notification-footer-link" id="allNotificationsButton" type="button">View all notifications <span aria-hidden="true">➜</span></button>
+            <button class="pro-tip-button" id="proTipButton" type="button"><span aria-hidden="true">✣</span> Pro tip</button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="page-heading">
+          <h1>Vendors</h1>
+          <div class="heading-actions">
+            <button class="button" id="importButton" type="button">
+              <svg viewBox="0 0 20 20"><path d="M10 12V3m-3 3 3-3 3 3M4 11v5h12v-5"/></svg>
+              Import
+            </button>
+            <button class="button primary" id="addVendorButton" type="button">Add Vendor</button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-wrap">
+            <svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m12.5 12.5 4 4"/></svg>
+            <input class="search" id="vendorSearch" type="search" placeholder="Filter by keyword" aria-label="Filter vendors by keyword" />
+          </label>
+          <button class="tool-link" id="allFiltersButton" type="button" aria-expanded="false"><span class="plus">+</span>All filters</button>
+          <button class="tool-link" id="groupByButton" type="button" aria-expanded="false">
+            <svg viewBox="0 0 20 20"><rect x="2.5" y="4" width="6" height="5" rx=".7"/><rect x="11.5" y="4" width="6" height="5" rx=".7"/><path d="M5.5 9v4h9V9m-4.5 4v3"/></svg>
+            Group by
+          </button>
+          <button class="tool-link" id="editColumnsButton" type="button" aria-expanded="false">
+            <svg viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h14"/><circle cx="7" cy="5" r="1.7" fill="#fff"/><circle cx="12" cy="10" r="1.7" fill="#fff"/><circle cx="8" cy="15" r="1.7" fill="#fff"/></svg>
+            Edit columns
+          </button>
+          <div class="popover" id="filterPopover">
+            <div class="popover-title">Filter vendors</div>
+            <div class="filter-fields">
+              <label>Status
+                <select id="statusFilter"><option value="">All statuses</option><option>Active</option><option>Inactive</option></select>
+              </label>
+              <label>Vendor name
+                <input id="nameFilter" type="text" placeholder="Enter vendor name" />
+              </label>
+            </div>
+            <div class="popover-footer">
+              <button class="small-button" id="clearFilters" type="button">Clear</button>
+              <button class="small-button primary" id="applyFilters" type="button">Apply filters</button>
+            </div>
+          </div>
+          <div class="popover" id="groupPopover">
+            <div class="popover-title">Group vendors by</div>
+            <button class="popover-option" data-group="None" type="button">None</button>
+            <button class="popover-option" data-group="Status" type="button">Status</button>
+            <button class="popover-option" data-group="Vendor ID" type="button">Vendor ID</button>
+          </div>
+          <div class="popover" id="columnsPopover">
+            <div class="popover-title">Visible columns</div>
+            <label class="popover-option"><input type="checkbox" checked data-column="vendor">Vendor Name</label>
+            <label class="popover-option"><input type="checkbox" checked data-column="vendorId">Vendor ID</label>
+            <label class="popover-option"><input type="checkbox" checked data-column="account">Account Number</label>
+            <label class="popover-option"><input type="checkbox" checked data-column="address">Address</label>
+            <label class="popover-option"><input type="checkbox" checked data-column="email">Email</label>
+            <label class="popover-option"><input type="checkbox" checked data-column="status">Status</label>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table aria-label="Vendors">
+            <thead>
+              <tr>
+                <th><input class="check" id="selectAll" type="checkbox" aria-label="Select all vendors" /></th>
+                <th data-column="vendor"><button class="sortable" data-sort="name" type="button">Vendor Name <span class="sort-mark">↕</span></button></th>
+                <th data-column="vendorId"><button class="sortable" data-sort="id" type="button">Vendor ID <span class="sort-mark">↕</span></button></th>
+                <th data-column="account"><button class="sortable" data-sort="account" type="button">Account Number <span class="sort-mark">↕</span></button></th>
+                <th data-column="address"><button class="sortable" data-sort="address" type="button">Address <span class="sort-mark">↕</span></button></th>
+                <th data-column="email"><button class="sortable" data-sort="email" type="button">Email <span class="sort-mark">↕</span></button></th>
+                <th data-column="status"><button class="sortable" data-sort="status" type="button">Status <span class="sort-mark">↕</span></button></th>
+              </tr>
+            </thead>
+            <tbody id="vendorRows"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <input id="fileInput" type="file" accept=".xlsx,.xls" hidden />
+
+    <div class="import-overlay" id="importOverlay">
+      <section class="import-panel" role="dialog" aria-modal="true" aria-labelledby="importTitle">
+        <header class="import-panel-header">
+          <h2 id="importTitle">Import vendors</h2>
+          <button class="import-close" id="closeImportButton" type="button" aria-label="Close import panel">×</button>
+        </header>
+        <div class="import-tabs" role="tablist" aria-label="Vendor import">
+          <button class="import-tab active" id="uploadTab" type="button" role="tab" aria-selected="true">Upload</button>
+          <button class="import-tab" id="historyTab" type="button" role="tab" aria-selected="false">History</button>
+        </div>
+        <div class="import-panel-content" id="uploadView">
+          <label class="upload-dropzone" id="uploadDropzone" for="fileInput">
+            <svg class="upload-cloud" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M9 24h15a5 5 0 0 0 .4-10A8.5 8.5 0 0 0 8 12.5 5.8 5.8 0 0 0 9 24Z"/>
+              <path d="M16.5 22V15m-3 3 3-3 3 3"/>
+            </svg>
+            <strong>Drop your file or <span>browse</span></strong>
+            <span class="upload-limit">xls or xlsx only - 8MB max</span>
+          </label>
+          <div class="selected-file" id="selectedFile">
+            <div class="selected-file-heading">
+              <span class="selected-file-name" id="selectedFileName"></span>
+              <button class="remove-selected-file" id="removeSelectedFile" type="button" aria-label="Remove selected file">×</button>
+            </div>
+            <div class="upload-progress-track" aria-hidden="true"><div class="upload-progress-fill" id="uploadProgressFill"></div></div>
+            <div class="upload-status" id="uploadStatus" role="status">Uploading file...</div>
+            <input class="import-note" id="importNote" type="text" placeholder="Optional note" aria-label="Optional note" />
+          </div>
+          <div class="upload-instructions">
+            <strong>To upload your vendors in bulk:</strong>
+            <ol>
+              <li>Download the file template below</li>
+              <li>Remove the sample entries, but keep the headers</li>
+              <li>Add your entries</li>
+              <li>Save the file to your computer</li>
+              <li>Drag/drop the file into the file upload area</li>
+              <li>After uploading click “Apply updates”</li>
+            </ol>
+          </div>
+          <div class="template-download">
+            <span class="template-name">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h6l4 4v11H5z"/><path d="M11 2.5v4h4M7.5 10h5M7.5 13h5"/></svg>
+              Sample_template_file.csv
+            </span>
+            <button id="downloadTemplate" type="button">Download</button>
+          </div>
+        </div>
+        <div class="import-panel-content history-list" id="historyView" role="tabpanel" aria-labelledby="historyTab">
+          <div class="history-empty">No vendor imports yet.</div>
+        </div>
+        <footer class="import-panel-footer">
+          <button class="button primary" id="applyImportButton" type="button" disabled>Apply updates</button>
+          <button class="button" id="closeImportFooterButton" type="button">Close</button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const vendors = [
+        { name: "Hawkeye LLC (045)", id: "Hawkeye LLC (045)", account: "A/C 00000", address: "5757 W Century Blvd Torrance CA 90503 USA", email: "email@email.com", status: "Active" },
+        { name: "Hawkeye LLC (045)", id: "Hawkeye LLC (045)", account: "A/C 00000", address: "5757 W Century Blvd Torrance CA 90503 USA", email: "email@email.com", status: "Active" },
+        { name: "Hawkeye LLC (045)", id: "Hawkeye LLC (045)", account: "A/C 00000", address: "5757 W Century Blvd Torrance CA 90503 USA", email: "email@email.com", status: "Active" },
+        { name: "Hawkeye LLC (045)", id: "Hawkeye LLC (045)", account: "A/C 00000", address: "5757 W Century Blvd Torrance CA 90503 USA", email: "email@email.com", status: "Active" },
+        { name: "Hawkeye LLC (045)", id: "Hawkeye LLC (045)", account: "A/C 00000", address: "5757 W Century Blvd Torrance CA 90503 USA", email: "email@email.com", status: "Active" },
+        { name: "Hawkeye LLC (045)", id: "Hawkeye LLC (045)", account: "A/C 00000", address: "5757 W Century Blvd Torrance CA 90503 USA", email: "email@email.com", status: "Active" },
+      ];
+
+      const rows = document.getElementById("vendorRows");
+      const importOverlay = document.getElementById("importOverlay");
+      const toast = document.getElementById("toast");
+      const notificationItems = [...document.querySelectorAll(".notification-item")];
+      let toastTimer;
+      let selectedImportFile = null;
+      let fileUploadTimer;
+      let applyTimer;
+      let completedImport = null;
+      let sortState = { key: "name", direction: 1 };
+      const visibleColumns = {
+        vendor: true,
+        vendorId: true,
+        account: true,
+        address: true,
+        email: true,
+        status: true,
+      };
+
+      function showToast(message) {
+        clearTimeout(toastTimer);
+        toast.className = "toast";
+        toast.textContent = message;
+        toast.classList.add("show");
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2300);
+      }
+
+      function showImportToast(type, fileName) {
+        clearTimeout(toastTimer);
+        toast.className = `toast import-toast show ${type === "complete" ? "import-complete" : "import-applying"}`;
+        toast.setAttribute("role", "status");
+        toast.innerHTML = "";
+
+        const icon = document.createElement("span");
+        icon.className = "import-toast-icon";
+        if (type === "complete") {
+          icon.innerHTML = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6.5 10 2.2 2.2 4.8-5"/></svg>';
+        } else {
+          icon.innerHTML = '<span class="import-toast-spinner" aria-hidden="true"></span>';
+        }
+
+        const content = document.createElement("span");
+        content.className = "import-toast-content";
+        const title = document.createElement("strong");
+        title.className = "import-toast-title";
+        title.textContent = type === "complete" ? "Upload completed" : "Vendors is currently being applied";
+        content.appendChild(title);
+
+        if (type === "complete") {
+          const message = document.createElement("span");
+          message.className = "import-toast-message";
+          message.textContent = "44 vendors have been added to Sunny Pictures Digital Productions Inc.";
+          const meta = document.createElement("span");
+          meta.className = "import-toast-meta";
+          meta.textContent = "Just now — Vendor upload";
+          const resultsButton = document.createElement("button");
+          resultsButton.className = "import-toast-action";
+          resultsButton.type = "button";
+          resultsButton.textContent = "View Results";
+          resultsButton.addEventListener("click", () => {
+            toast.classList.remove("show");
+            closeImportPanel();
+            openImportPanel();
+            showHistoryTab();
+          });
+          content.append(message, meta, resultsButton);
+        } else {
+          const message = document.createElement("span");
+          message.className = "import-toast-message";
+          message.textContent = fileName;
+          content.appendChild(message);
+        }
+
+        const dismissButton = document.createElement("button");
+        dismissButton.className = "import-toast-dismiss";
+        dismissButton.type = "button";
+        dismissButton.setAttribute("aria-label", "Dismiss upload message");
+        dismissButton.textContent = "×";
+        dismissButton.addEventListener("click", () => toast.classList.remove("show"));
+        toast.append(icon, content, dismissButton);
+      }
+
+      function showHistoryTab() {
+        document.getElementById("historyTab").classList.add("active");
+        document.getElementById("historyTab").setAttribute("aria-selected", "true");
+        document.getElementById("uploadTab").classList.remove("active");
+        document.getElementById("uploadTab").setAttribute("aria-selected", "false");
+        document.getElementById("historyView").hidden = false;
+        document.getElementById("historyView").classList.add("active");
+        document.getElementById("uploadView").hidden = true;
+      }
+
+      function renderImportHistory() {
+        const history = document.getElementById("historyView");
+        history.replaceChildren();
+        if (!completedImport) {
+          const empty = document.createElement("div");
+          empty.className = "history-empty";
+          empty.textContent = "No vendor imports yet.";
+          history.appendChild(empty);
+          return;
+        }
+
+        const entry = document.createElement("div");
+        entry.className = "history-entry";
+        const details = document.createElement("div");
+        const name = document.createElement("strong");
+        name.textContent = completedImport.fileName;
+        const summary = document.createElement("span");
+        summary.textContent = `44 vendors added · Just now`;
+        details.append(name, summary);
+        if (completedImport.note) {
+          const note = document.createElement("div");
+          note.textContent = `Note: ${completedImport.note}`;
+          details.appendChild(note);
+        }
+        const status = document.createElement("span");
+        status.className = "history-status";
+        status.textContent = "Completed";
+        entry.append(details, status);
+        history.appendChild(entry);
+      }
+
+      function renderRows() {
+        const keyword = document.getElementById("vendorSearch").value.trim().toLowerCase();
+        const name = document.getElementById("nameFilter").value.trim().toLowerCase();
+        const status = document.getElementById("statusFilter").value;
+        const displayed = vendors
+          .filter((vendor) => {
+            const text = Object.values(vendor).join(" ").toLowerCase();
+            return text.includes(keyword) && vendor.name.toLowerCase().includes(name) && (!status || vendor.status === status);
+          })
+          .sort((a, b) => String(a[sortState.key]).localeCompare(String(b[sortState.key])) * sortState.direction);
+
+        rows.innerHTML = displayed.map((vendor) => `
+          <tr>
+            <td><input class="check row-check" type="checkbox" aria-label="Select ${escapeHtml(vendor.name)}" /></td>
+            <td data-column="vendor"><button class="vendor-link" type="button" data-vendor="${escapeHtml(vendor.name)}">${escapeHtml(vendor.name)}</button></td>
+            <td data-column="vendorId">${escapeHtml(vendor.id)}</td>
+            <td data-column="account">${escapeHtml(vendor.account)}</td>
+            <td data-column="address">${escapeHtml(vendor.address)}</td>
+            <td data-column="email">${escapeHtml(vendor.email)}</td>
+            <td data-column="status"><span class="status">${escapeHtml(vendor.status)}</span></td>
+          </tr>
+        `).join("");
+
+        document.querySelectorAll("th[data-column], td[data-column]").forEach((cell) => {
+          cell.hidden = !visibleColumns[cell.dataset.column];
+        });
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[char]);
+      }
+
+      function closePopovers(except) {
+        document.querySelectorAll(".popover").forEach((popover) => {
+          if (popover !== except) popover.classList.remove("open");
+        });
+        document.querySelectorAll("[aria-expanded]").forEach((button) => {
+          if (button.getAttribute("aria-expanded") !== "false") button.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      function togglePopover(buttonId, popoverId) {
+        const button = document.getElementById(buttonId);
+        const popover = document.getElementById(popoverId);
+        const opening = !popover.classList.contains("open");
+        closePopovers(popover);
+        popover.classList.toggle("open", opening);
+        button.setAttribute("aria-expanded", String(opening));
+      }
+
+      function updateNotificationCount() {
+        const remaining = document.querySelectorAll("#notificationFeed .notification-item").length;
+        const unread = document.querySelectorAll("#notificationFeed .notification-item.unread").length;
+        const badge = document.querySelector(".notification-count");
+        badge.textContent = unread;
+        badge.style.display = unread ? "grid" : "none";
+        document.getElementById("notificationFeed").classList.toggle("is-empty", remaining === 0);
+        document.getElementById("notificationEmptyState").hidden = remaining !== 0;
+      }
+
+      function addUploadNotification() {
+        const item = document.createElement("article");
+        item.className = "notification-item unread";
+        item.tabIndex = 0;
+        item.dataset.notification = "vendor-upload";
+
+        const icon = document.createElement("span");
+        icon.className = "notification-status-icon success";
+        icon.setAttribute("aria-hidden", "true");
+        icon.textContent = "✓";
+
+        const copy = document.createElement("span");
+        copy.className = "notification-copy";
+        const title = document.createElement("strong");
+        title.textContent = "Upload completed";
+        const detail = document.createElement("span");
+        detail.className = "notification-detail";
+        detail.textContent = "44 vendors have been added to Sunny Pictures Digital Productions Inc.";
+        const time = document.createElement("span");
+        time.className = "notification-time";
+        time.textContent = "Just now — Vendor upload";
+        const resultsButton = document.createElement("button");
+        resultsButton.className = "download-report";
+        resultsButton.type = "button";
+        resultsButton.textContent = "View Results";
+        copy.append(title, detail, time, resultsButton);
+
+        const dismissButton = document.createElement("button");
+        dismissButton.className = "dismiss-notification";
+        dismissButton.type = "button";
+        dismissButton.setAttribute("aria-label", "Dismiss upload completed notification");
+        dismissButton.textContent = "×";
+
+        const unreadDot = document.createElement("span");
+        unreadDot.className = "notification-unread-dot";
+        unreadDot.setAttribute("aria-label", "Unread");
+        const moreButton = document.createElement("button");
+        moreButton.className = "notification-more";
+        moreButton.type = "button";
+        moreButton.setAttribute("aria-label", "More upload notification options");
+        moreButton.textContent = "•••";
+        moreButton.addEventListener("click", (event) => event.stopPropagation());
+        item.append(icon, copy, moreButton, dismissButton, unreadDot);
+        document.getElementById("notificationFeed").prepend(item);
+
+        const markAsRead = () => {
+          item.classList.remove("unread");
+          updateNotificationCount();
+        };
+        item.addEventListener("click", (event) => {
+          if (!event.target.closest(".dismiss-notification, .download-report")) markAsRead();
+        });
+        item.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            markAsRead();
+          }
+        });
+        dismissButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          item.remove();
+          updateNotificationCount();
+        });
+        resultsButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          markAsRead();
+          closePopovers();
+          openImportPanel();
+          showHistoryTab();
+        });
+        updateNotificationCount();
+      }
+
+      document.getElementById("vendorSearch").addEventListener("input", renderRows);
+      document.getElementById("selectAll").addEventListener("change", (event) => {
+        document.querySelectorAll(".row-check").forEach((checkbox) => checkbox.checked = event.target.checked);
+      });
+
+      document.getElementById("allFiltersButton").addEventListener("click", () => togglePopover("allFiltersButton", "filterPopover"));
+      document.getElementById("groupByButton").addEventListener("click", () => togglePopover("groupByButton", "groupPopover"));
+      document.getElementById("editColumnsButton").addEventListener("click", () => togglePopover("editColumnsButton", "columnsPopover"));
+      document.getElementById("clientButton").addEventListener("click", () => togglePopover("clientButton", "clientPopover"));
+      document.getElementById("bellButton").addEventListener("click", () => togglePopover("bellButton", "notificationPopover"));
+      document.getElementById("markNotificationsRead").addEventListener("click", () => {
+        document.querySelectorAll("#notificationFeed .notification-item").forEach((item) => item.classList.remove("unread"));
+        updateNotificationCount();
+        showToast("All notifications marked as read.");
+      });
+
+      notificationItems.forEach((item) => {
+        const markAsRead = () => {
+          item.classList.remove("unread");
+          updateNotificationCount();
+          if (item.dataset.notification === "report-started") {
+            showToast("Viewing report progress.");
+          } else if (item.dataset.notification === "report-completed") {
+            showToast("Opening completed report.");
+          } else if (item.dataset.notification === "report-failed") {
+            showToast("Viewing failed report details.");
+          } else {
+            showToast("Opening notification details.");
+          }
+        };
+        item.addEventListener("click", (event) => {
+          if (event.target.closest("[data-notification-action]") ||
+              event.target.closest(".expand-updates") ||
+              event.target.closest(".dismiss-notification")) return;
+          markAsRead();
+        });
+        item.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            markAsRead();
+          }
+        });
+      });
+
+      document.querySelectorAll(".dismiss-notification").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          button.closest(".notification-item").remove();
+          updateNotificationCount();
+          showToast("Notification dismissed.");
+        });
+      });
+
+      document.querySelectorAll("[data-notification-action]").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          showToast(button.dataset.notificationAction === "report"
+            ? "Report download would start here."
+            : "Payment details would open here.");
+        });
+      });
+      document.querySelectorAll(".notification-more").forEach((button) => {
+        button.addEventListener("click", (event) => event.stopPropagation());
+      });
+      document.querySelector(".expand-updates").addEventListener("click", (event) => {
+        event.stopPropagation();
+        const button = event.currentTarget;
+        const item = button.closest(".notification-item");
+        const expanded = button.getAttribute("aria-expanded") !== "true";
+        button.setAttribute("aria-expanded", String(expanded));
+        button.textContent = expanded ? "Collapse" : "Expand";
+        item.setAttribute("aria-expanded", String(expanded));
+        item.classList.toggle("expanded", expanded);
+        document.getElementById("vendorUpdateEvents").hidden = !expanded;
+      });
+
+      document.getElementById("applyFilters").addEventListener("click", () => {
+        renderRows();
+        closePopovers();
+      });
+      document.getElementById("clearFilters").addEventListener("click", () => {
+        document.getElementById("statusFilter").value = "";
+        document.getElementById("nameFilter").value = "";
+        renderRows();
+      });
+
+      document.querySelectorAll("[data-group]").forEach((button) => {
+        button.addEventListener("click", () => {
+          showToast(button.dataset.group === "None" ? "Grouping cleared." : `Grouped by ${button.dataset.group}.`);
+          closePopovers();
+        });
+      });
+
+      document.querySelectorAll("[data-column]").forEach((control) => {
+        if (control.matches('input[type="checkbox"]')) {
+          control.addEventListener("change", () => {
+            visibleColumns[control.dataset.column] = control.checked;
+            document.querySelectorAll(`th[data-column="${control.dataset.column}"], td[data-column="${control.dataset.column}"]`)
+              .forEach((cell) => cell.hidden = !control.checked);
+          });
+        }
+      });
+
+      document.querySelectorAll("[data-sort]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const key = button.dataset.sort;
+          sortState = { key, direction: sortState.key === key ? -sortState.direction : 1 };
+          renderRows();
+          document.querySelectorAll(".sort-mark").forEach((mark) => mark.textContent = "↕");
+          button.querySelector(".sort-mark").textContent = sortState.direction === 1 ? "▲" : "▼";
+        });
+      });
+
+      document.getElementById("vendorRows").addEventListener("click", (event) => {
+        const link = event.target.closest("[data-vendor]");
+        if (link) {
+          showToast(`${link.dataset.vendor} selected.`);
+        }
+      });
+
+      const importButton = document.getElementById("importButton");
+      const fileInput = document.getElementById("fileInput");
+      const selectedFile = document.getElementById("selectedFile");
+      const selectedFileName = document.getElementById("selectedFileName");
+      const applyImportButton = document.getElementById("applyImportButton");
+
+      function openImportPanel() {
+        document.getElementById("uploadTab").classList.add("active");
+        document.getElementById("uploadTab").setAttribute("aria-selected", "true");
+        document.getElementById("historyTab").classList.remove("active");
+        document.getElementById("historyTab").setAttribute("aria-selected", "false");
+        document.getElementById("uploadView").hidden = false;
+        document.getElementById("historyView").hidden = true;
+        document.getElementById("historyView").classList.remove("active");
+        importOverlay.classList.add("open");
+        document.body.classList.add("import-open");
+        importButton.setAttribute("aria-expanded", "true");
+        document.getElementById("closeImportButton").focus();
+      }
+
+      function closeImportPanel() {
+        importOverlay.classList.remove("open");
+        document.body.classList.remove("import-open");
+        importButton.setAttribute("aria-expanded", "false");
+        importButton.focus();
+      }
+
+      function clearImportFile() {
+        clearTimeout(fileUploadTimer);
+        selectedImportFile = null;
+        fileInput.value = "";
+        selectedFile.classList.remove("visible");
+        document.getElementById("uploadProgressFill").className = "upload-progress-fill";
+        document.getElementById("uploadStatus").className = "upload-status";
+        applyImportButton.disabled = true;
+      }
+
+      function setImportFile(file) {
+        if (!file) return;
+        if (!/\.(xlsx|xls)$/i.test(file.name)) {
+          clearImportFile();
+          showToast("Choose an Excel .xls or .xlsx file.");
+          return;
+        }
+        if (file.size > 8 * 1024 * 1024) {
+          clearImportFile();
+          showToast("The file must be 8MB or smaller.");
+          return;
+        }
+        clearTimeout(fileUploadTimer);
+        selectedImportFile = file;
+        applyImportButton.disabled = true;
+        document.getElementById("uploadProgressFill").className = "upload-progress-fill";
+        document.getElementById("uploadStatus").className = "upload-status";
+        document.getElementById("uploadStatus").textContent = "Uploading file...";
+        selectedFileName.textContent = file.name;
+        selectedFile.classList.add("visible");
+        requestAnimationFrame(() => {
+          document.getElementById("uploadProgressFill").classList.add("uploading");
+        });
+        fileUploadTimer = setTimeout(() => {
+          document.getElementById("uploadProgressFill").classList.remove("uploading");
+          document.getElementById("uploadProgressFill").classList.add("complete");
+          document.getElementById("uploadStatus").classList.add("complete");
+          document.getElementById("uploadStatus").textContent = "Success, file has been uploaded";
+          applyImportButton.disabled = false;
+        }, 1050);
+      }
+
+      importButton.setAttribute("aria-haspopup", "dialog");
+      importButton.setAttribute("aria-expanded", "false");
+      importButton.addEventListener("click", openImportPanel);
+      document.getElementById("closeImportButton").addEventListener("click", closeImportPanel);
+      document.getElementById("closeImportFooterButton").addEventListener("click", closeImportPanel);
+      importOverlay.addEventListener("click", (event) => {
+        if (event.target === importOverlay) closeImportPanel();
+      });
+
+      document.getElementById("uploadTab").addEventListener("click", () => {
+        document.getElementById("uploadTab").classList.add("active");
+        document.getElementById("uploadTab").setAttribute("aria-selected", "true");
+        document.getElementById("historyTab").classList.remove("active");
+        document.getElementById("historyTab").setAttribute("aria-selected", "false");
+        document.getElementById("uploadView").hidden = false;
+        document.getElementById("historyView").hidden = true;
+        document.getElementById("historyView").classList.remove("active");
+      });
+      document.getElementById("historyTab").addEventListener("click", () => {
+        showHistoryTab();
+      });
+
+      fileInput.addEventListener("change", (event) => {
+        setImportFile(event.target.files[0]);
+      });
+      document.getElementById("removeSelectedFile").addEventListener("click", () => {
+        clearImportFile();
+      });
+
+      const uploadDropzone = document.getElementById("uploadDropzone");
+      uploadDropzone.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        uploadDropzone.classList.add("dragover");
+      });
+      uploadDropzone.addEventListener("dragleave", () => uploadDropzone.classList.remove("dragover"));
+      uploadDropzone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        uploadDropzone.classList.remove("dragover");
+        setImportFile(event.dataTransfer.files[0]);
+      });
+
+      document.getElementById("downloadTemplate").addEventListener("click", () => {
+        const template = "Vendor Name,Vendor ID,Account Number,Address,Email\nSample Vendor,12345,00000,123 Main St,";
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(new Blob([template], { type: "text/csv" }));
+        link.download = "Sample_template_file.csv";
+        link.click();
+        URL.revokeObjectURL(link.href);
+      });
+
+      applyImportButton.addEventListener("click", () => {
+        if (!selectedImportFile || applyImportButton.disabled) return;
+        clearTimeout(applyTimer);
+        const fileName = selectedImportFile.name;
+        const note = document.getElementById("importNote").value.trim();
+        applyImportButton.disabled = true;
+        closeImportPanel();
+        showImportToast("applying", fileName);
+        applyTimer = setTimeout(() => {
+          completedImport = { fileName, note };
+          renderImportHistory();
+          addUploadNotification();
+          selectedImportFile = null;
+          fileInput.value = "";
+          selectedFile.classList.remove("visible");
+          document.getElementById("importNote").value = "";
+          showImportToast("complete", fileName);
+        }, 2600);
+      });
+
+      document.getElementById("topSearchButton").addEventListener("click", () => {
+        document.getElementById("vendorSearch").focus();
+        document.getElementById("vendorSearch").scrollIntoView({ block: "nearest", behavior: "smooth" });
+      });
+      document.getElementById("helpButton").addEventListener("click", () => showToast("Help center would open here."));
+      document.getElementById("profileButton").addEventListener("click", () => showToast("Profile menu would open here."));
+      document.getElementById("uploadButton").addEventListener("click", () => showToast("Upload center would open here."));
+      document.getElementById("allNotificationsButton").addEventListener("click", () => {
+        closePopovers();
+        showToast("Notification center would open here.");
+      });
+      document.getElementById("proTipButton").addEventListener("click", () => {
+        showToast("Pro tip: Select a notification to go straight to its invoice.");
+      });
+
+      document.querySelectorAll(".nav a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          document.querySelectorAll(".nav a").forEach((item) => item.classList.toggle("active", item === link));
+          if (link.dataset.section !== "Tasks") showToast(`${link.dataset.section} section selected.`);
+        });
+      });
+
+      document.querySelectorAll("[data-client]").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelector("#clientButton span:last-child").textContent = button.dataset.client;
+          closePopovers();
+          showToast(`Client changed to ${button.dataset.client}.`);
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".popover") && !event.target.closest(".tool-link") &&
+            !event.target.closest(".client-picker") && !event.target.closest("#bellButton")) {
+          closePopovers();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closePopovers();
+          if (importOverlay.classList.contains("open")) closeImportPanel();
+        }
+      });
+
+      updateNotificationCount();
+      renderRows();
+    </script>
+  </body>
+</html>
