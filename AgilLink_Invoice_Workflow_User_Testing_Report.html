@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AgilLink Invoice Workflow - User Testing Results</title>
+<style>
+body { font-family: Calibri, Arial, sans-serif; color:#1f1f1f; max-width:900px; margin:40px auto; line-height:1.45; }
+h1 { color:#1f4e78; border-bottom:2px solid #1f4e78; padding-bottom:6px; }
+h2 { color:#2f5597; margin-top:24px; }
+h3 { color:#3f3f3f; }
+.cover { text-align:center; border:2px solid #1f4e78; padding:70px 30px; margin-bottom:30px; }
+.cover h1 { border:none; font-size:28pt; }
+.subtitle { font-size:16pt; color:#595959; }
+.callout { background:#eaf2f8; border-left:5px solid #2f5597; padding:12px 16px; }
+.high { color:#9c0006; font-weight:bold; }
+.medium { color:#bf9000; font-weight:bold; }
+.quote { border-left:4px solid #a6a6a6; padding-left:14px; color:#404040; font-style:italic; }
+table { border-collapse:collapse; width:100%; margin:12px 0; }
+th { background:#1f4e78; color:white; }
+th, td { border:1px solid #bfbfbf; padding:8px; vertical-align:top; }
+ul { margin-top:4px; }
+.page { page-break-before:always; }
+</style>
+</head>
+<body>
+<div class="cover">
+<h1>AgilLink Invoice Workflow</h1>
+<p class="subtitle">User Testing Results and Recommendations</p>
+<p>Compiled November 23, 2026</p>
+<p>Sources: November 20, 2026 invoice workflow prototype test recording and Testing a Feature meeting notes</p>
+</div>
+
+<h1>Executive Summary</h1>
+<p>Participants found the side-by-side invoice image and approval detail view compelling and materially faster to use than the current popup or separate-window workflow. The strongest positive response was the ability to keep the invoice, GL coding, payment method, variance, vendor details, and approval controls visible in one place.</p>
+<p>The concept is viewed as an upgrade, even where not yet considered monumental. The greatest practical benefit would come from fast in-line movement across many invoices and client groups, combined with clear exception handling and immediate feedback.</p>
+<div class="callout"><strong>Key outcome:</strong> Proceed with the workbench as a modernized review surface, but treat navigation clarity, exception logic, hold and rejection communication, and performance as release-critical requirements.</div>
+
+<h2>Overall assessment</h2>
+<ul>
+<li>Strong acceptance of the side-by-side review experience</li>
+<li>Strong acceptance of across-client review and “Approve and Next” navigation</li>
+<li>Clear preference for a final confirmation screen after approval</li>
+<li>Strong need for actionable notes, notifications, and rejection workflows</li>
+<li>Concerns about ambiguous labels, defaults, and routine-invoice auto-selection</li>
+<li>Performance may determine whether the concept creates meaningful time savings</li>
+</ul>
+
+<h1>Test Scope</h1>
+<p>A 52-minute, 39-second prototype walkthrough was held on November 20, 2026. Alan Reback participated from an approver perspective and was joined by Michael McCarthy, Tracy Taub, Patrick Petrousian, Jeffrey Hansen, and other project participants during portions of the discussion.</p>
+<h2>Observed tasks</h2>
+<ol>
+<li>Identify the approval entry point</li>
+<li>Locate Canyon Ridge Holdings and open the approval queue</li>
+<li>Review, hold, reject, approve, and move to the next invoice</li>
+<li>Interpret variance and routine-invoice indicators</li>
+<li>Add and interpret a note</li>
+<li>Compare two approval workbench layouts</li>
+<li>Review cross-client navigation and vendor information</li>
+</ol>
+
+<h2>User goals</h2>
+<ul>
+<li>Find high-priority invoices quickly</li>
+<li>Review the invoice image and approval details together</li>
+<li>Validate amount, due date, invoice number, vendor, payment method, GL coding, and exceptions</li>
+<li>Move rapidly through routine invoices while isolating items requiring attention</li>
+<li>Hold or reject an item with a clear reason and notify the correct person</li>
+<li>Confirm the impact of approvals on the projected book balance</li>
+</ul>
+
+<div class="page"></div>
+<h1>Detailed Findings</h1>
+<h2>1. Side-by-side invoice and approval view</h2>
+<p>The participant strongly preferred the invoice image and approval details on two adjacent panes over a popup or separate window. This eliminated resizing and reduced context switching.</p>
+<p class="quote">“This is amazing… it is beautiful.”</p>
+<p class="quote">“This layout… is just so easy to see that stuff.”</p>
+
+<h2>2. Entry point and navigation</h2>
+<p>The participant looked for a directly visible invoice approval action on the dashboard and preferred left-side navigation. The client name was the natural starting point for opening an approval queue. “Review all clients” was considered valuable but difficult to discover.</p>
+<p>“Select and Next” was considered fast and easy, but the participant wanted cross-client continuation rather than returning to the invoice inbox. Recommended copy is “Approve and Next” or “Approve Selected.”</p>
+
+<h2>3. Filters and priority</h2>
+<p>High-priority filtering was valuable, but a visible button was preferred over a hidden or dropdown-only control. The participant expected to use the filter without losing access to status, client context, and invoice totals.</p>
+<p>The green routine-invoice indicator meant “system checked; good to go.” It could reduce repetitive review, but routine behavior should be configurable. Central or authorized control is preferred over allowing every approver to skip routine review.</p>
+
+<h2>4. Historical variance and exceptions</h2>
+<p>Historical variance was useful for recurring, predictable expenses, with a suggested threshold around +/-25 percent. It was not useful for every workflow. Production invoices vary from one payment to the next and could generate constant false exceptions.</p>
+<h3>Additional exception triggers suggested</h3>
+<ul>
+<li>New vendor</li>
+<li>Vendor or payment instruction change</li>
+<li>Payment method differs from prior payment</li>
+<li>Missing invoice description or required backup</li>
+<li>Negative or insufficient projected book balance</li>
+<li>GL or allocation-description mismatch</li>
+</ul>
+
+<h2>5. Invoice detail and vendor information</h2>
+<p>The user looked for invoice number, due date, approval amount, payment method, GL coding, prior approvals, vendor information, vendor tax and entity type, and related documents.</p>
+<p>Missing or unclear information included:</p>
+<ul>
+<li>Invoice description or memo text</li>
+<li>Explicit new-vendor or vendor-change status</li>
+<li>1099/entity status</li>
+<li>Payment backup for pre-authorized or hand-wired payments</li>
+<li>A clear distinction between a change and missing information</li>
+</ul>
+<p>Vendor hover or popover details were considered useful and should not force the user to leave the approval workflow.</p>
+
+<h2>6. Holding, notes, and rejection</h2>
+<p>Holding was used for coding or factual discrepancies that could be corrected by the accounting team. Rejection was reserved for fundamental issues such as an invoice sent to the wrong client.</p>
+<p>The notes bubble was easy to find once explained, and an asterisk made its presence recognizable. However, notes lacked a clear submission, recipient, delivery, and resolution model.</p>
+<h3>Required behaviors</h3>
+<ul>
+<li>Explicit note recipients or @mentions</li>
+<li>Email, text, push, or in-app notifications</li>
+<li>Submit behavior that supports Enter where appropriate</li>
+<li>Visible note indicators on queue and hold status</li>
+<li>Ability to resolve the item after conversation</li>
+<li>Rejected invoices moved to a visible rejected receptacle and flagged for the correct users</li>
+</ul>
+
+<h2>7. Final confirmation and projected balance</h2>
+<p>The participant wanted to approve individual items and then return to a final confirmation screen. A final review was considered important because approval is not invisible or irreversible background action.</p>
+<p>The projected book balance should remain visible and be prominent or red when negative. The system should warn and confirm before release when funds are insufficient.</p>
+
+<div class="page"></div>
+<h1>Usability Issues and Recommended Responses</h1>
+<table>
+<tr><th>Issue</th><th>Observed impact</th><th>Severity</th><th>Recommended response</th></tr>
+<tr><td>“Select” label is ambiguous</td><td>User cannot tell whether it means approve or stage</td><td class="high">High</td><td>Use “Approve” or “Approve and Next”</td></tr>
+<tr><td>“Review all clients” is hidden</td><td>Cross-client review is harder to discover</td><td class="high">High</td><td>Promote it in primary navigation</td></tr>
+<tr><td>No recipient or delivery model for notes</td><td>Team cannot know if a note is actionable</td><td class="high">High</td><td>Add mentions and notification behavior</td></tr>
+<tr><td>Green routine status lacks explanation</td><td>Status can be mistaken for manual selection</td><td class="medium">Medium</td><td>Explain the rule or threshold</td></tr>
+<tr><td>Expanded GL view lacks clear return</td><td>Participant is unsure how to exit</td><td class="medium">Medium</td><td>Add “Back to invoice details”</td></tr>
+<tr><td>Pre-authorized payment lacks backup</td><td>Approver may need bank confirmation</td><td class="high">High</td><td>Expose payment backup</td></tr>
+<tr><td>Hold item lacks client context</td><td>Users cannot identify the item quickly</td><td class="high">High</td><td>Show client, reason, and note indicator</td></tr>
+<tr><td>Negative balance lacks strong warning</td><td>Could permit insufficient-funds approval</td><td class="high">High</td><td>Add red warning and confirm-before-release</td></tr>
+<tr><td>Variance is not configurable</td><td>May create false exceptions</td><td class="high">High</td><td>Configure per client or workflow</td></tr>
+<tr><td>Workflow depends on performance</td><td>Slow loading undermines value</td><td class="high">High</td><td>Optimize document and invoice loading</td></tr>
+</table>
+
+<h1>Prioritized Recommendations</h1>
+<h2>P0 - Required before launch</h2>
+<ol>
+<li>Rename approval actions clearly: Approve, Approve and Next, and Approve Selected.</li>
+<li>Provide a final confirmation step with invoice count and projected book balance.</li>
+<li>Make Review all clients and high-priority filtering prominent.</li>
+<li>Show client name and hold reason on every hold queue item.</li>
+<li>Implement negative-balance warning and confirm-before-release behavior.</li>
+<li>Expose new vendor, vendor change, tax and entity, and payment method changes.</li>
+<li>Ensure payment backup and invoice description are available where required.</li>
+<li>Deliver fast image and invoice-detail loading.</li>
+</ol>
+
+<h2>P1 - Next iteration</h2>
+<ol>
+<li>Add recipient mentions and configurable email, text, push, and in-app notifications.</li>
+<li>Move rejected items to a dedicated, filterable rejected receptacle.</li>
+<li>Support keyboard shortcuts and explain them in context.</li>
+<li>Make approval controls persistent at top and bottom while scrolling.</li>
+<li>Configure historical variance thresholds and exception rules per client or workflow.</li>
+<li>Explain green, routine, and pre-selected status.</li>
+<li>Allow authorized configuration of visible invoice modules and field order.</li>
+</ol>
+
+<h2>P2 - Enhancements</h2>
+<ol>
+<li>Add payment-method-change exception detection.</li>
+<li>Add description-based routing checks for investment-bank accounts.</li>
+<li>Add a vendor hover card for tax, entity, and 1099 history.</li>
+<li>Support partial or baby invoice approval.</li>
+<li>Improve bulk status tracking and per-invoice approval history.</li>
+</ol>
+
+<h1>Proposed Success Measures</h1>
+<ul>
+<li>Time from queue entry to final approval - reduce versus current workflow</li>
+<li>Invoices reviewed per user per hour - increase with no increase in errors</li>
+<li>Clicks or page loads per invoice - reduce</li>
+<li>False exception rate - minimize</li>
+<li>Negative-balance release rate - zero without acknowledgement</li>
+<li>Note response and resolution time - decrease</li>
+<li>Task completion without facilitator help - at least 90 percent</li>
+<li>Post-task satisfaction - improve versus current AgilLink</li>
+</ul>
+
+<h1>Participant Quotes</h1>
+<p class="quote">“I have had to explain that the invoice is hiding behind the approval screen. Now it is side by side. This is amazing.”</p>
+<p class="quote">“The invoice number, the due date, the amount - so easy to check.”</p>
+<p class="quote">“I would hold it and send a note to the bookkeeper - why is this coded to auto expense?”</p>
+<p class="quote">“I want to go back and see that extra screen. I do not think it is an extra step.”</p>
+<p class="quote">“I do not want users to have shortcuts to skip reviewing invoices with no variance.”</p>
+<p class="quote">“The monumental change is our firm AgilLink could run as fast as the prototype.”</p>
+
+<h1>Conclusion</h1>
+<p>The participant evaluates the concept as an upgrade that could improve invoice approval speed, accuracy, and clarity. The most valuable capability is not a dramatic redesign alone, but a fast, configurable review loop that keeps the invoice, exceptions, client context, balances, and approvals together.</p>
+<p>Proceed to a larger and representative usability round covering business management and production workflows. Test threshold configuration, hold and rejection notifications, cross-client navigation, negative-balance handling, and end-to-end performance against realistic invoice volumes.</p>
+</body>
+</html>
